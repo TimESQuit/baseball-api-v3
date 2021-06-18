@@ -1,0 +1,12 @@
+{
+  "python.formatting.provider": "black",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintArgs": [
+    "--load-plugins",
+    "pylint_django",
+    "--disable=django-not-configured",
+    "--django-settings-module=<mainapp>.settings"
+  ],
+  "python.pythonPath": "/home/tim/.local/share/virtualenvs/DRF-baseball-v1-F_A35ipt/bin/python"
+}
