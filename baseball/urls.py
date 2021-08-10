@@ -11,5 +11,5 @@ urlpatterns = [
         name="leaderboards",
     ),
     path("players/<int:pk>/", PlayerDetail.as_view(), name="batter-detail"),
-    path("players/search/", PlayerSearch.as_view(), name="player-search"),
+    path("players/search", PlayerSearch.as_view(), name="player-search"),
 ]
