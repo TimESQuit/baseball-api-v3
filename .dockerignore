@@ -1,0 +1,4 @@
+*/*/__pycache__*
+./docker-compose*
+./README.md
+*./Pipfile
