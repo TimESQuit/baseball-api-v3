@@ -1,4 +1,8 @@
-*/*/__pycache__*
-./docker-compose*
-./README.md
-*./Pipfile
+**/*__pycache__*
+docker-compose*
+README.md
+Pipfile*
+.env
+.gitignore
+**/*.git
+**/*.vscode

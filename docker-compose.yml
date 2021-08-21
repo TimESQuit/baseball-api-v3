@@ -3,18 +3,20 @@ version: "3.9"
 services:
   db:
     image: postgres
+    container_name: baseball_db
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      # - ./data/db:/var/lib/postgresql/data
       - ./dump_init.sql:/docker-entrypoint-initdb.d/dump_init.sql
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-  web:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+  api:
     build: .
+    container_name: baseball_api
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python manage.py runserver 0.0.0.0:8000'
-    volumes:
-      - .:/app
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
     ports:
       - "8000:8000"
     depends_on:
